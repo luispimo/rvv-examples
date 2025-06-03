@@ -10,38 +10,17 @@
 FROM ubuntu:22.04
 
 # Set the maintainer
-MAINTAINER Nicolas Brunie
+#MAINTAINER Nicolas Brunie
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Madrid
 
 # Install some base tools that we will need to get the risc-v
 # toolchain working.
-RUN apt update && apt install -y git \
-        build-essential \
-        autoconf \
-	automake \
-	autotools-dev \
-	curl \
-	libmpc-dev \
-	libmpfr-dev \
-	libgmp-dev \
-	libusb-1.0-0-dev \
-	gawk \
-	build-essential \
-	bison \
-	flex \
-	texinfo \
-	gperf \
-	libtool \
-	patchutils \
-	bc \
-	zlib1g-dev \
-	device-tree-compiler \
-	pkg-config \
-	libexpat-dev \
-	python3 \
-        cmake \
-        ninja-build \
-        libglib2.0-dev \
-        python3-venv
+RUN apt update && apt install -y autoconf automake autotools-dev curl python3 python3-pip python3-tomli libmpc-dev libmpfr-dev \
+            libgmp-dev gawk build-essential bison flex texinfo gperf libtool \
+            patchutils bc zlib1g-dev libexpat-dev git ninja-build cmake libglib2.0-dev expect \
+            device-tree-compiler python3-pyelftools libslirp-dev
 
 # Make a working folder and set the necessary environment variables.
 ENV RISCV /opt/riscv
