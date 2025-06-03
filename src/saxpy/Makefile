@@ -8,7 +8,7 @@ CFLAGS=-O2 -march=rv64gcv
 
 # architectural parameters for the simulation
 # width of vector registers (VLEN)
-VLEN=128
+VLEN?=128
 
 # path to proxy-kernel (pk)
 PK_PATH=/opt/riscv/riscv64-unknown-elf/bin/pk64
@@ -16,7 +16,6 @@ PK_PATH=/opt/riscv/riscv64-unknown-elf/bin/pk64
 # SIMULATOR
 # Available options in the Docker (uncomment one)
 SIMULATOR=spike --isa=rv64gcv_zicntr_zihpm_zvl$(VLEN)b_zve32f $(PK_PATH)
-#--varch=vlen:$(VLEN),elen:64 $(PK_PATH)
 
 # Version (uncomment one)
 # Assembler version:

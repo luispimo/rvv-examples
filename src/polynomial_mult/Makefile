@@ -23,7 +23,7 @@ SIM_ARCH=rv64gcv_zba_zvbb
 
 # SIMULATOR
 # Available options in the Docker (uncomment one)
-SIMULATOR=spike --isa=$(SIM_ARCH)_zicntr_zihpm --varch=vlen:$(VLEN),elen:64 $(PK_PATH)
+SIMULATOR=spike --isa=$(SIM_ARCH)_zicntr_zihpm_zvl$(VLEN)b_zve64d $(PK_PATH)
 # SIMULATOR=qemu-riscv64 -cpu rv64,v=on,vext_spec=v1.0,vlen=128,rvv_ta_all_1s=on
 
 COMMON_INCLUDES = -I./ -I../utils/
