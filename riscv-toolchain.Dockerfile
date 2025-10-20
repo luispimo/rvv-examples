@@ -23,16 +23,16 @@ RUN apt update && apt install -y autoconf automake autotools-dev curl python3 py
             device-tree-compiler python3-pyelftools libslirp-dev
 
 # Make a working folder and set the necessary environment variables.
-ENV RISCV /opt/riscv
-ENV NUMJOBS 1
+ENV RISCV=/opt/riscv
+ENV NUMJOBS=1
 RUN mkdir -p $RISCV
 
 # Make a directory to download sources and build programs
-ENV RISCV_SRCS /home/riscv_srcs/
+ENV RISCV_SRCS=/home/riscv_srcs/
 RUN mkdir -p $RISCV_SRCS
 
 # Add the GNU utils bin folder to the path.
-ENV PATH $RISCV/bin:$PATH
+ENV PATH=$RISCV/bin:$PATH
 
 # GNU toolchain
 WORKDIR $RISCV_SRCS
